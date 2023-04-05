@@ -1,52 +1,53 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int sumador(int a, int b)
+{
+    int suma;
 
-# Linker output
-*.ilk
-*.map
-*.exp
+    suma = a + b;
 
-# Precompiled Headers
-*.gch
-*.pch
+    return suma;
+}
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+void limpia ()
+{
+    system ("cls");
+}
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+void delay(unsigned int mseconds)
+{
+    clock_t goal = mseconds + clock();
+    while(goal > clock());
+}
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+int main()
+{
+int num1 = 0;
+int num2 = 0;
+int resultado = 0;
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+printf("Hola, como estas?");
+delay (2000);
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+limpia();
+
+printf("Porfavor ingresa 1 numero: ");
+scanf("%i", &num1);
+
+printf("\n");
+
+printf("Ahora el segundo: ");
+scanf("%i", &num2);
+
+resultado = sumador(num1, num2);
+
+delay(2000);
+
+limpia();
+
+printf("El valor de la suma es: %i", resultado);
+
+return 0;
+}
